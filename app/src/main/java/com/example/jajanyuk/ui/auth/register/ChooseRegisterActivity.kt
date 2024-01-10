@@ -22,9 +22,8 @@ class ChooseRegisterActivity : AppCompatActivity() {
         binding = ActivityChooseRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.ivBack.setOnClickListener {
-            startActivity(Intent(this@ChooseRegisterActivity, LoginActivity::class.java))
-            finish()
+        binding.topAppBar.setNavigationOnClickListener {
+            onBackPressed()
         }
         binding.btnDisabled.isEnabled = true
 
