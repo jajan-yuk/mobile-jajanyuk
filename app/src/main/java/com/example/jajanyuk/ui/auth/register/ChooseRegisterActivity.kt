@@ -10,6 +10,7 @@ import android.widget.Toast
 import com.example.jajanyuk.R
 import com.example.jajanyuk.databinding.ActivityChooseRegisterBinding
 import com.example.jajanyuk.databinding.ActivityLoginBinding
+import com.example.jajanyuk.ui.auth.login.LoginActivity
 
 class ChooseRegisterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityChooseRegisterBinding
@@ -21,7 +22,10 @@ class ChooseRegisterActivity : AppCompatActivity() {
         binding = ActivityChooseRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
+        binding.ivBack.setOnClickListener {
+            startActivity(Intent(this@ChooseRegisterActivity, LoginActivity::class.java))
+            finish()
+        }
         binding.btnDisabled.isEnabled = true
 
         binding.item1.setOnClickListener {
