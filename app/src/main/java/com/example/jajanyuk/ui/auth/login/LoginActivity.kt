@@ -1,13 +1,13 @@
 package com.example.jajanyuk.ui.auth.login
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.jajanyuk.databinding.ActivityLoginBinding
 import android.text.Editable
 
 import android.text.TextWatcher
-
-
+import com.example.jajanyuk.ui.auth.register.ChooseRegisterActivity
 
 
 class LoginActivity : AppCompatActivity() {
@@ -16,7 +16,9 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        binding.tvLoginToRegister.setOnClickListener {
+            startActivity(Intent(this@LoginActivity, ChooseRegisterActivity::class.java))
+        }
         binding.etPassword.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
