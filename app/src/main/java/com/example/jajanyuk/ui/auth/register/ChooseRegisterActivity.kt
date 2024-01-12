@@ -43,6 +43,7 @@ class ChooseRegisterActivity : AppCompatActivity() {
         binding.btnRegister.setOnClickListener {
             if(selectedItem == "Buyer"){
                 startActivity(Intent(this@ChooseRegisterActivity, RegisterActivity::class.java))
+                finish()
             }else{
                 Toast.makeText(this, "Featured not yed", Toast.LENGTH_SHORT).show()
             }

@@ -5,6 +5,8 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.widget.TextView
 import androidx.activity.viewModels
@@ -23,6 +25,7 @@ class RegisterActivity : AppCompatActivity() {
         AuthViewModelFactory.getInstance(application)
     }
     private var emailUser: String? = null
+    private var passwordUser: String? = null
     private lateinit var binding: ActivityRegisterBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +35,7 @@ class RegisterActivity : AppCompatActivity() {
             onBackPressed()
         }
         binding.btnRegister.setOnClickListener { handleRegister() }
+
 
     }
 
