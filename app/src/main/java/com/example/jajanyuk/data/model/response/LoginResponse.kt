@@ -7,7 +7,7 @@ import kotlinx.parcelize.Parcelize
 data class LoginResponse(
 
 	@field:SerializedName("data")
-	val data: DataUser? = null,
+	val data: DataUser,
 
 	@field:SerializedName("success")
 	val success: Boolean? = null,

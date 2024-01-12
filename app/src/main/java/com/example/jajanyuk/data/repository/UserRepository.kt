@@ -6,6 +6,7 @@ import androidx.lifecycle.asLiveData
 import androidx.lifecycle.liveData
 import com.example.jajanyuk.R
 import com.example.jajanyuk.data.local.datastore.UserPreferences
+import com.example.jajanyuk.data.model.request.LoginRequest
 import com.example.jajanyuk.data.model.request.RegisterRequest
 import com.example.jajanyuk.data.model.response.DataUser
 import com.example.jajanyuk.data.network.ApiService
@@ -31,6 +32,15 @@ class UserRepository private constructor(
     fun register(name: String, username: String, password: String, email: String, alamat: String) = liveData {
         emit(Result.Loading)
         emit(apiCall { apiService.register(RegisterRequest(name, username, password, email, alamat)) })
+    }
+
+    fun login(username: String, password: String) = liveData {
+        emit(Result.Loading)
+        emit(apiCall {
+            val response = apiService.login(LoginRequest(username, password))
+            saveSession(response.data)
+            response
+        })
     }
 
     suspend fun saveSession(data: DataUser) = userPref.saveSession(data)
