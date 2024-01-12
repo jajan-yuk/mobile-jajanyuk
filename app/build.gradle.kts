@@ -16,7 +16,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField("String", "BASE_URL", "\"https://auth.jajan-yuk.pegelinux.my.id/api/v1/\"")
+        buildConfigField("String", "BASE_URL", "\"https://user.jajan-yuk.pegelinux.my.id/api/v1/\"")
     }
 
     buildTypes {

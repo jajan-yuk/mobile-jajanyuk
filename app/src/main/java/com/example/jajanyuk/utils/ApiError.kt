@@ -2,6 +2,7 @@ package com.example.jajanyuk.utils
 
 import com.example.jajanyuk.data.model.response.ErrorResponse
 import com.google.gson.Gson
+import com.google.gson.JsonSyntaxException
 import retrofit2.HttpException
 
 object ApiError{
@@ -13,7 +14,11 @@ object ApiError{
     }
     fun handleHttpExceptionString(exception: HttpException): String {
         val jsonInString = exception.response()?.errorBody()?.string()
-        val errorBody = Gson().fromJson(jsonInString, ErrorResponse::class.java)
-        return errorBody.message ?: "Unknown error"
+        return try {
+            val errorBody = Gson().fromJson(jsonInString, ErrorResponse::class.java)
+            errorBody.message ?: "Unknown error"
+        } catch (e: JsonSyntaxException) {
+            jsonInString ?: "Unknown error"
+        }
     }
 }
