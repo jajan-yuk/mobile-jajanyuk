@@ -13,6 +13,7 @@ import androidx.activity.viewModels
 import com.example.jajanyuk.MainActivity
 import com.example.jajanyuk.R
 import com.example.jajanyuk.ui.auth.AuthViewModelFactory
+import com.example.jajanyuk.ui.auth.LoginViewModelFactory
 import com.example.jajanyuk.ui.auth.register.ChooseRegisterActivity
 import com.example.jajanyuk.utils.ProgressDialogUtils
 import com.example.jajanyuk.utils.SnackbarUtils
@@ -22,7 +23,7 @@ import com.example.jajanyuk.utils.Result
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
     private val viewModel: LoginViewModel by viewModels {
-        AuthViewModelFactory.getInstance(application)
+        LoginViewModelFactory.getInstance(application)
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

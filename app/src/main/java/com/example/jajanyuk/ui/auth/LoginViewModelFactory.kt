@@ -3,26 +3,27 @@ package com.example.jajanyuk.ui.auth
 import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.example.jajanyuk.data.repository.LoginRepository
 import com.example.jajanyuk.data.repository.UserRepository
 import com.example.jajanyuk.di.Injection
 import com.example.jajanyuk.ui.auth.login.LoginViewModel
 import com.example.jajanyuk.ui.auth.register.RegisterViewModel
 
-class AuthViewModelFactory private constructor(private val userRepository: UserRepository) :
+class LoginViewModelFactory private constructor(private val loginRepository: LoginRepository) :
     ViewModelProvider.NewInstanceFactory() {
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>):  T =
         when {
-            modelClass.isAssignableFrom(RegisterViewModel::class.java) ->
-                RegisterViewModel(userRepository) as T
+            modelClass.isAssignableFrom(LoginViewModel::class.java) ->
+                LoginViewModel(loginRepository) as T
             else -> throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
         }
     companion object {
         @Volatile
-        private var instance: AuthViewModelFactory? = null
-        fun getInstance(application: Application): AuthViewModelFactory =
+        private var instance: LoginViewModelFactory? = null
+        fun getInstance(application: Application): LoginViewModelFactory =
             instance ?: synchronized(this) {
-                instance ?: AuthViewModelFactory(Injection.provideUserRepository(application))
+                instance ?: LoginViewModelFactory(Injection.provideLoginUserRepository(application))
             }.also { instance = it }
     }
 }

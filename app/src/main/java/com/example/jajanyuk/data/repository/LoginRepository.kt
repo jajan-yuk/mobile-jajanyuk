@@ -7,7 +7,6 @@ import androidx.lifecycle.liveData
 import com.example.jajanyuk.R
 import com.example.jajanyuk.data.local.datastore.UserPreferences
 import com.example.jajanyuk.data.model.request.LoginRequest
-import com.example.jajanyuk.data.model.request.RegisterRequest
 import com.example.jajanyuk.data.model.response.DataUser
 import com.example.jajanyuk.data.network.ApiService
 import com.example.jajanyuk.utils.ApiError
@@ -15,7 +14,7 @@ import retrofit2.HttpException
 import java.io.IOException
 import com.example.jajanyuk.utils.Result
 
-class UserRepository private constructor(
+class LoginRepository private constructor(
     private val apiService: ApiService,
     private val application: Application,
     private val userPref: UserPreferences
@@ -28,10 +27,6 @@ class UserRepository private constructor(
         Result.Error(application.resources.getString(R.string.network_error_message))
     } catch (exception: Exception) {
         Result.Error(exception.message ?: application.resources.getString(R.string.unknown_error))
-    }
-    fun register(name: String, username: String, password: String, email: String, alamat: String) = liveData {
-        emit(Result.Loading)
-        emit(apiCall { apiService.register(RegisterRequest(name, username, password, email, alamat)) })
     }
 
     fun login(username: String, password: String) = liveData {
@@ -48,14 +43,14 @@ class UserRepository private constructor(
     suspend fun deleteSession() = userPref.deleteSession()
     companion object {
         @Volatile
-        private var instance: UserRepository? = null
+        private var instance: LoginRepository? = null
         fun getInstance(
             apiService: ApiService,
             application: Application,
             pref: UserPreferences
-        ): UserRepository =
+        ): LoginRepository =
             instance ?: synchronized(this) {
-                instance ?: UserRepository(apiService, application, pref)
+                instance ?: LoginRepository(apiService, application, pref)
             }.also { instance = it }
     }
 }

@@ -1,10 +1,11 @@
 package com.example.jajanyuk.ui.auth.login
 
 import androidx.lifecycle.ViewModel
+import com.example.jajanyuk.data.repository.LoginRepository
 import com.example.jajanyuk.data.repository.UserRepository
 
-class LoginViewModel(private val userRepository: UserRepository) : ViewModel() {
-    fun login(email: String, password: String) = userRepository.login(email, password)
-    fun getUserLogin() = userRepository.getSession()
+class LoginViewModel(private val loginRepository: LoginRepository) : ViewModel() {
+    fun login(username: String, password: String) = loginRepository.login(username, password)
+    fun getUserLogin() = loginRepository.getSession()
 
 }

@@ -34,14 +34,6 @@ class UserRepository private constructor(
         emit(apiCall { apiService.register(RegisterRequest(name, username, password, email, alamat)) })
     }
 
-    fun login(username: String, password: String) = liveData {
-        emit(Result.Loading)
-        emit(apiCall {
-            val response = apiService.login(LoginRequest(username, password))
-            saveSession(response.data)
-            response
-        })
-    }
 
     suspend fun saveSession(data: DataUser) = userPref.saveSession(data)
     fun getSession(): LiveData<DataUser> = userPref.getSession().asLiveData()
