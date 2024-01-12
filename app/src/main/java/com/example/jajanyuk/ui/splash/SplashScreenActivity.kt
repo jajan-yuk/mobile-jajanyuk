@@ -8,6 +8,7 @@ import android.os.Looper
 import androidx.activity.viewModels
 import com.example.jajanyuk.MainActivity
 import com.example.jajanyuk.R
+import com.example.jajanyuk.databinding.ActivityLoginBinding
 import com.example.jajanyuk.databinding.ActivitySplashScreenBinding
 import com.example.jajanyuk.ui.auth.LoginViewModelFactory
 import com.example.jajanyuk.ui.auth.login.LoginActivity
@@ -20,7 +21,7 @@ class SplashScreenActivity : AppCompatActivity() {
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_splash_screen)
+        binding = ActivitySplashScreenBinding.inflate(layoutInflater)
 
         handleUserLogin()
     }
