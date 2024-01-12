@@ -22,7 +22,7 @@ class SplashScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySplashScreenBinding.inflate(layoutInflater)
-
+        setContentView(binding.root)
         handleUserLogin()
     }
 
@@ -32,7 +32,7 @@ class SplashScreenActivity : AppCompatActivity() {
 
             Handler(Looper.getMainLooper()).postDelayed({
                 startActivity(delayIntent); finish()
-            }, 3000L)
+            }, 3000)
         }
     }
 }
