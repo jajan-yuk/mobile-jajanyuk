@@ -4,10 +4,8 @@ import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.jajanyuk.data.repository.LoginRepository
-import com.example.jajanyuk.data.repository.UserRepository
 import com.example.jajanyuk.di.Injection
 import com.example.jajanyuk.ui.auth.login.LoginViewModel
-import com.example.jajanyuk.ui.auth.register.RegisterViewModel
 
 class LoginViewModelFactory private constructor(private val loginRepository: LoginRepository) :
     ViewModelProvider.NewInstanceFactory() {

@@ -9,8 +9,8 @@ import android.widget.TextView
 import android.widget.Toast
 import com.example.jajanyuk.R
 import com.example.jajanyuk.databinding.ActivityChooseRegisterBinding
-import com.example.jajanyuk.databinding.ActivityLoginBinding
-import com.example.jajanyuk.ui.auth.login.LoginActivity
+import com.example.jajanyuk.ui.auth.register.pedagang.RegisterMerchantAcitivty
+import com.example.jajanyuk.ui.auth.register.pembeli.RegisterActivity
 
 class ChooseRegisterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityChooseRegisterBinding
@@ -45,7 +45,8 @@ class ChooseRegisterActivity : AppCompatActivity() {
                 startActivity(Intent(this@ChooseRegisterActivity, RegisterActivity::class.java))
                 finish()
             }else{
-                Toast.makeText(this, "Featured not yed", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this@ChooseRegisterActivity, RegisterMerchantAcitivty::class.java))
+                finish()
             }
         }
     }

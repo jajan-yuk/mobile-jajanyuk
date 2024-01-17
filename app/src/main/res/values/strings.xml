@@ -9,4 +9,8 @@
     <string name="address_required">Address must not be empty</string>
     <string name="password_required">Password must not be empty</string>
     <string name="confirmPassword_required">Confirm password must not be empty</string>
+    <string-array name="spinner_items">
+        <item>Aktif</item>
+        <item>Tidak Aktif</item>
+    </string-array>
 </resources>

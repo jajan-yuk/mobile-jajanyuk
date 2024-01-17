@@ -1,12 +1,10 @@
-package com.example.jajanyuk.ui.auth.register
+package com.example.jajanyuk.ui.auth.register.pembeli
 
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.widget.TextView
 import androidx.activity.viewModels

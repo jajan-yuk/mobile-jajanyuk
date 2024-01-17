@@ -1,4 +1,4 @@
-package com.example.jajanyuk.ui.auth.register
+package com.example.jajanyuk.ui.auth.register.pembeli
 
 import androidx.lifecycle.ViewModel
 import com.example.jajanyuk.data.repository.UserRepository
