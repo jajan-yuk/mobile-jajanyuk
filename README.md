@@ -37,6 +37,36 @@ A type-safe HTTP client for Android and Java
 For logs HTTP request and response data
  [Repo](https://github.com/square/okhttp/tree/master/okhttp-logging-interceptor)
 
+
+<!-- GETTING STARTED -->
+## Getting Started
+
+To get started with the Ternaku mobile app, follow the instructions below.
+
+### Prerequisites
+
+- Mobile phone with android os
+- Android (minimum version Android 7.0 Nougat)
+- Stable Internet connection
+
+### Tools Sofware
+
+- [Android Studio](https://developer.android.com/studio)
+- JRE (Java Runtime Environment) or JDK (Java Development Kit)
+  
+### Installation
+- Android Studio
+
+	1. Clone the repo
+	   ```sh
+	   git clone https://github.com/jajan-yuk/mobile-jajanyuk
+	   ```
+	2. Build the apps
+	   ```sh
+	   Run app or Shift + F10
+	   ```
+
+
 ## Usage
 
 Apps Demo
