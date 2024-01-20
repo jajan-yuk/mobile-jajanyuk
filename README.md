@@ -25,6 +25,7 @@
  3. Navigation Component
  4. MVVM Architecture
  5. Material Components
+ 6. Google Maps API
 
 ### Third-part libaries
 
