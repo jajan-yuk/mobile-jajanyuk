@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".ui.pembeli.pembayaran_premium_activity">
 
     <LinearLayout
@@ -23,7 +24,6 @@
                 android:id="@+id/topAppBar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="@color/white"
                 app:title="Metode Pembayaran"
                 app:navigationIcon="@drawable/ic_baseline_arrow_back_ios_24"
                 />
