@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.pembeli.pembayaran_activity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="-15dp"
+        android:layout_marginTop="10dp">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white"
+            app:title="Metode Pembayaran"
+            app:navigationIcon="@drawable/ic_baseline_arrow_back_ios_24"
+            />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_tunai"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tunai"
+        app:cornerRadius="8dp"
+        android:padding="20dp"
+        android:textAlignment="textStart"
+        android:textSize="16sp"
+        android:textColor="#DED8E1"
+        app:strokeWidth="1dp"
+        app:strokeColor="#DED8E1"
+        android:backgroundTint="@color/white"
+        app:icon="@drawable/ic_premium"
+        app:iconTint="#FFC533"
+        app:iconGravity="end"
+        app:iconSize="20dp"
+        android:clickable="false"
+        />
+
+    <LinearLayout
+        android:clickable="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp"
+        >
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvTitle"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Berlangganan untuk dapat menggunakan tunai"
+            android:textColor="#2478A8"
+            android:textSize="14sp"
+            app:fontFamily="@font/nunito_light" />
+            
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/ic_back_right_blue"/>
+
+    </LinearLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Scan QR"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/nunito_light"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_logo" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_qris"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="QRIS"
+        app:cornerRadius="8dp"
+        android:layout_marginTop="10dp"
+        android:padding="20dp"
+        android:textAlignment="textStart"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        app:strokeWidth="1dp"
+        app:strokeColor="#CAC4D0"
+        android:backgroundTint="@color/white"
+        />
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="E-Wallet"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/nunito_light"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_logo" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_gopay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Gopay"
+        app:cornerRadius="8dp"
+        android:layout_marginTop="10dp"
+        android:padding="20dp"
+        android:textAlignment="textStart"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        app:strokeWidth="1dp"
+        app:strokeColor="#CAC4D0"
+        android:backgroundTint="@color/white"
+        />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_ovo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ovo"
+            app:cornerRadius="8dp"
+            android:layout_marginTop="10dp"
+            android:padding="20dp"
+            android:textAlignment="textStart"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            app:strokeWidth="1dp"
+            app:strokeColor="#CAC4D0"
+            android:backgroundTint="@color/white"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_dana"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dana"
+            app:cornerRadius="8dp"
+            android:layout_marginTop="10dp"
+            android:padding="20dp"
+            android:textAlignment="textStart"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            app:strokeWidth="1dp"
+            app:strokeColor="#CAC4D0"
+            android:backgroundTint="@color/white"
+            />
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Debit"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/nunito_light"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_logo" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_bca"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="BCA"
+        app:cornerRadius="8dp"
+        android:layout_marginTop="10dp"
+        android:padding="20dp"
+        android:textAlignment="textStart"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        app:strokeWidth="1dp"
+        app:strokeColor="#CAC4D0"
+        android:backgroundTint="@color/white"
+        />
+
+
+    </LinearLayout>
+</ScrollView>
