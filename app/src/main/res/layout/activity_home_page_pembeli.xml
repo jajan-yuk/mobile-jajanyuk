@@ -63,10 +63,22 @@
                     android:src="@drawable/ic_setting"/>
             </LinearLayout>
 
-
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/searchView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:iconifiedByDefault="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/linear_top"
+                app:layout_constraintStart_toStartOf="parent"
+                android:focusable="false"
+                android:layout_marginTop="10dp"
+                app:searchIcon="@drawable/ic_search"
+                android:background="@drawable/bg_search"
+                app:queryHint="Cari pedagang keliling terdekat" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_leaderboard"
+                android:id="@+id/rv_pedagang"
                 android:orientation="vertical"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 android:layout_width="match_parent"
@@ -76,7 +88,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toTopOf="@id/btn_login"
-                app:layout_constraintTop_toBottomOf="@id/linear_top"
+                app:layout_constraintTop_toBottomOf="@id/searchView"
                 />
 
             <com.google.android.material.button.MaterialButton
@@ -85,7 +97,6 @@
                 android:layout_height="wrap_content"
                 android:text="Open Merchant Maps"
                 app:cornerRadius="8dp"
-                android:layout_marginTop="30dp"
                 android:padding="18dp"
                 android:textSize="16sp"
                 android:textColor="@color/black"
@@ -94,6 +105,10 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 />
+
+
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
