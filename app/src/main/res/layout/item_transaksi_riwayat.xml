@@ -1,0 +1,125 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_marginBottom="15dp"
+    android:background="@color/white"
+    android:layout_height="wrap_content">
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/iv_event"
+        android:layout_width="90dp"
+        android:scaleType="centerCrop"
+        app:riv_corner_radius="10dp"
+        android:layout_height="90dp"
+        android:src="@drawable/ic_launcher_background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+    <LinearLayout
+        android:id="@+id/asd"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintStart_toEndOf="@id/iv_event"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:maxLines="1"
+            android:textSize="16sp"
+            android:ellipsize="end"
+            android:fontFamily="@font/nunito_bold"
+            android:textColor="@color/black"
+            android:text="Kentang goreng RR"
+            />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_metode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:maxLines="1"
+            android:textSize="13sp"
+            android:ellipsize="end"
+            android:fontFamily="@font/nunito"
+            android:textColor="#79747E"
+            android:text="Metode pembayaran: tunai"
+            />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:maxLines="1"
+            android:textSize="13sp"
+            android:ellipsize="end"
+            android:fontFamily="@font/nunito"
+            android:textColor="#79747E"
+            android:text="2 produk"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_harga"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:maxLines="1"
+                android:textSize="14sp"
+                android:ellipsize="end"
+                android:fontFamily="@font/nunito_bold"
+                android:textColor="@color/black"
+                android:text="Rp7.500"
+                />
+            <LinearLayout
+                android:id="@+id/btn_tambah_ulasan"
+                android:clickable="true"
+                android:layout_width="wrap_content"
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="5dp"
+                android:gravity="center"
+                android:layout_marginRight="5dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_riawayt"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:src="@drawable/ic_baseline_add_24"/>
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tambah Ulasan"
+                    android:textColor="@color/black"
+                    android:textSize="10sp"
+                    android:layout_gravity="center"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="4dp"
+                    app:fontFamily="@font/nunito_light" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toBottomOf="@id/iv_event"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
