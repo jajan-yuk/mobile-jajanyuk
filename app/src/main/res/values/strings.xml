@@ -13,4 +13,5 @@
         <item>Aktif</item>
         <item>Tidak Aktif</item>
     </string-array>
+    <string name="title_activity_maps_pedagang">MapsPedagangActivity</string>
 </resources>
