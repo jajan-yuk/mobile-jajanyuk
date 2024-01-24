@@ -15,11 +15,17 @@
         android:theme="@style/Theme.JajanYuk"
         tools:targetApi="31">
         <activity
+            android:name=".ui.pembeli.ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.pembeli.SettingActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.pembeli.PesananBerhasilActivity"
             android:exported="false" />
         <activity
             android:name=".ui.pembeli.RingkasanPembelianActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -31,9 +37,7 @@
             android:exported="false" />
         <activity
             android:name=".ui.pembeli.pembayaran_activity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".ui.pembeli.DetailPedagangActivity"
             android:exported="true" />
