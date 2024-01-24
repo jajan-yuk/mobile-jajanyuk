@@ -15,6 +15,15 @@
         android:theme="@style/Theme.JajanYuk"
         tools:targetApi="31">
         <activity
+            android:name=".ui.pembeli.EditPasswordFinishedActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.pembeli.EditPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.pembeli.EditProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.pembeli.ProfileActivity"
             android:exported="false" />
         <activity
