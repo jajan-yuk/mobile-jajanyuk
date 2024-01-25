@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import com.example.jajanyuk.MainActivity
 import com.example.jajanyuk.R
+import com.example.jajanyuk.data.model.response.LoginResponse
 import com.example.jajanyuk.ui.auth.AuthViewModelFactory
 import com.example.jajanyuk.ui.auth.LoginViewModelFactory
 import com.example.jajanyuk.ui.auth.register.ChooseRegisterActivity
@@ -71,18 +72,18 @@ class LoginActivity : AppCompatActivity() {
             else -> viewModel.login(username, password).observe(this@LoginActivity) { result ->
                 when (result) {
                     is Result.Loading -> ProgressDialogUtils.showProgressDialog(this@LoginActivity)
-                    is Result.Success -> onLoginSuccess()
+                    is Result.Success -> onLoginSuccess(result.data)
                     is Result.Error -> onLoginError(result.error)
                 }
             }
         }
     }
 
-    private fun onLoginSuccess() {
+    private fun onLoginSuccess(result: LoginResponse) {
         Handler(Looper.getMainLooper()).postDelayed({
             viewModel.getUserLogin().observe(this) {
                 if (it.accessToken.isNotEmpty()) {
-                    var role = it.user?.role?.name.toString()
+                    var role = result.data.user?.role?.name.toString()
                     if(role == "USER") {
                         Handler(Looper.getMainLooper()).postDelayed({
                             val homePembeliIntent = Intent(this,   HomePagePembeliActivity::class.java)

@@ -12,7 +12,7 @@ import com.example.jajanyuk.ui.auth.login.LoginViewModel
 import com.example.jajanyuk.ui.splash.SplashScreenViewModel
 
 class RingkasanPembelianActivity : AppCompatActivity() {
-    private val viewModel: LoginViewModel by viewModels {
+    private val loginViewModel: LoginViewModel by viewModels {
         LoginViewModelFactory.getInstance(application)
     }
 
@@ -26,4 +26,16 @@ class RingkasanPembelianActivity : AppCompatActivity() {
         binding = ActivityRingkasanPembelianBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
+
+    override fun onResume() {
+        super.onResume()
+        observeUserData()
+    }
+    private fun observeUserData() {
+        loginViewModel.getUserLogin().observe(this@RingkasanPembelianActivity) {
+            dataUser = it
+        }
+    }
+
+
 }

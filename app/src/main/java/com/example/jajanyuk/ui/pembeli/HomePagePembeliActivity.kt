@@ -34,7 +34,6 @@ class HomePagePembeliActivity : AppCompatActivity() {
     ) {
         when {
             it[Manifest.permission.ACCESS_COARSE_LOCATION] ?: false -> getLocation()
-            else -> showSnackBar("Izin lokasi ditolak")
         }
     }
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
