@@ -11,6 +11,7 @@ import com.example.jajanyuk.R
 import com.example.jajanyuk.data.model.response.pembeli.DataItemPedagangNerby
 import com.example.jajanyuk.databinding.ItemProdukBinding
 import com.example.jajanyuk.databinding.ItemProdukMapBinding
+import com.example.jajanyuk.ui.pembeli.DetailPedagangActivity
 
 class ProdukMapAdapter: ListAdapter<DataItemPedagangNerby, ProdukMapAdapter.MyViewHolder>(DIFF_CALLBACK) {
 
@@ -22,14 +23,12 @@ class ProdukMapAdapter: ListAdapter<DataItemPedagangNerby, ProdukMapAdapter.MyVi
             tvRating.text = (data.summaryProductPedagang?.rating ?: "").toString()
             tvHarga.text = (data.summaryProductPedagang?.harga ?: "").toString()
 
-
-
-//            itemView.setOnClickListener {
-//                val intent = Intent(itemView.context, DetailArticleActivity::class.java).apply {
-//                    putExtra(DetailArticleActivity.STORY_INTENT_DATA, data)
-//                }
-//                itemView.context.startActivity(intent)
-//            }
+            itemView.setOnClickListener {
+                val intent = Intent(itemView.context, DetailPedagangActivity::class.java).apply {
+                    putExtra(DetailPedagangActivity.STORY_INTENT_DATA, data)
+                }
+                itemView.context.startActivity(intent)
+            }
         }
     }
 

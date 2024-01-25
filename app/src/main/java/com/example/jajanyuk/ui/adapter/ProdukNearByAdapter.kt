@@ -10,6 +10,7 @@ import com.bumptech.glide.Glide
 import com.example.jajanyuk.R
 import com.example.jajanyuk.data.model.response.pembeli.DataItemPedagangNerby
 import com.example.jajanyuk.databinding.ItemProdukBinding
+import com.example.jajanyuk.ui.pembeli.DetailPedagangActivity
 
 class ProdukNearByAdapter: ListAdapter<DataItemPedagangNerby, ProdukNearByAdapter.MyViewHolder>(DIFF_CALLBACK) {
 
@@ -28,12 +29,12 @@ class ProdukNearByAdapter: ListAdapter<DataItemPedagangNerby, ProdukNearByAdapte
                 .fallback(R.drawable.ic_launcher_foreground)
                 .into(ivGambar)
 
-//            itemView.setOnClickListener {
-//                val intent = Intent(itemView.context, DetailArticleActivity::class.java).apply {
-//                    putExtra(DetailArticleActivity.STORY_INTENT_DATA, data)
-//                }
-//                itemView.context.startActivity(intent)
-//            }
+            itemView.setOnClickListener {
+                val intent = Intent(itemView.context, DetailPedagangActivity::class.java).apply {
+                    putExtra(DetailPedagangActivity.STORY_INTENT_DATA, data)
+                }
+                itemView.context.startActivity(intent)
+            }
         }
     }
 

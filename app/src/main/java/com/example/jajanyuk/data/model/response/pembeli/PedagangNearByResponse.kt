@@ -1,6 +1,8 @@
 package com.example.jajanyuk.data.model.response.pembeli
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
 data class PedagangNearByResponse(
 
@@ -14,6 +16,7 @@ data class PedagangNearByResponse(
 	val message: String? = null
 )
 
+@Parcelize
 data class DataItemPedagangNerby(
 
 	@field:SerializedName("image")
@@ -45,8 +48,9 @@ data class DataItemPedagangNerby(
 
 	@field:SerializedName("longitude")
 	val longitude: Double? = null
-)
+): Parcelable
 
+@Parcelize
 data class SummaryProductPedagang(
 
 	@field:SerializedName("name_product")
@@ -56,5 +60,5 @@ data class SummaryProductPedagang(
 	val harga: String? = null,
 
 	@field:SerializedName("rating")
-	val rating: Any? = null
-)
+	val rating: Double? = null
+): Parcelable

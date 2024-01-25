@@ -17,6 +17,7 @@ import android.provider.Settings
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.jajanyuk.data.model.response.DataUser
 import com.example.jajanyuk.data.model.response.pembeli.PedagangNearByResponse
@@ -76,7 +77,32 @@ class HomePagePembeliActivity : AppCompatActivity() {
 
         setupRecyclerView(adapter)
 
+
+        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                if (!newText.isNullOrBlank()) {
+                    performSearch(newText)
+                    return true
+                }else if(newText == ""){
+                    performSearch("")
+                    return true
+                }
+                return false
+            }
+        })
+
     }
+    private fun performSearch(query: String) {
+        viewModel.getSearchPedagang(dataUser.accessToken, query).observe(this){
+            handleProdukResult(it, adapter)
+        }
+    }
+
 
     private fun setupRecyclerView(adapter: ProdukNearByAdapter) {
         val layoutManager = LinearLayoutManager(this@HomePagePembeliActivity)
@@ -100,10 +126,10 @@ class HomePagePembeliActivity : AppCompatActivity() {
         }
     }
     private fun observeProduk() {
-        val latitudeDouble: Double = location?.latitude ?: 0.0
-        val longitudeDouble: Double = location?.longitude ?: 0.0
+//        val latitudeDouble: Double = location?.latitude ?: 0.0
+//        val longitudeDouble: Double = location?.longitude ?: 0.0
 
-        viewModel.getPedagangNearBy(dataUser.accessToken, latitudeDouble, longitudeDouble).observe(this) { result ->
+        viewModel.getPedagangNearBy(dataUser.accessToken, 0.0, 0.0).observe(this) { result ->
             handleProdukResult(result, adapter)
         }
     }

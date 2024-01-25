@@ -9,4 +9,8 @@ class DetailPedagangActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_pedagang)
     }
+    companion object {
+        const val STORY_INTENT_DATA = "STORY_INTENT_DATA"
+    }
+
 }

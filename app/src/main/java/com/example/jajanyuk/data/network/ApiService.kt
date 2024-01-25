@@ -54,4 +54,13 @@ interface ApiService {
         @Query("max_distance") max_distance: Double = 1.0 ,
     ): PedagangNearByResponse
 
+    @GET("pedagang")
+    suspend fun getSearchPedagang(
+        @Header("Authorization") token: String,
+        @Query("keyword") keyword: String,
+        @Query("latitude") latitude: Double = 0.0 ,
+        @Query("longitude") longitude: Double = 0.0,
+        @Query("max_distance") max_distance: Double = 1.0 ,
+    ): PedagangNearByResponse
+
 }
