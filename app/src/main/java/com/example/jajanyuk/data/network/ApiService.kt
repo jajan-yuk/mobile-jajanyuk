@@ -6,6 +6,7 @@ import com.example.jajanyuk.data.model.request.RegisterRequest
 import com.example.jajanyuk.data.model.response.LoginResponse
 import com.example.jajanyuk.data.model.response.UserResponse
 import com.example.jajanyuk.data.model.response.auth.RegisterPedagangResponse
+import com.example.jajanyuk.data.model.response.pembeli.DetailPedagangResponse
 import com.example.jajanyuk.data.model.response.pembeli.PedagangNearByResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -17,6 +18,7 @@ import retrofit2.http.Headers
 import retrofit2.http.Multipart
 import retrofit2.http.POST
 import retrofit2.http.Part
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface ApiService {
@@ -62,5 +64,12 @@ interface ApiService {
         @Query("longitude") longitude: Double = 0.0,
         @Query("max_distance") max_distance: Double = 1.0 ,
     ): PedagangNearByResponse
+
+
+    @GET("pedagang/{id}")
+    suspend fun getDetailPedagang(
+        @Header("Authorization") token: String,
+        @Path("id") id: String,
+    ): DetailPedagangResponse
 
 }
