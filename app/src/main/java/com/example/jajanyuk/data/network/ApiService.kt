@@ -6,6 +6,7 @@ import com.example.jajanyuk.data.model.request.RegisterRequest
 import com.example.jajanyuk.data.model.response.LoginResponse
 import com.example.jajanyuk.data.model.response.UserResponse
 import com.example.jajanyuk.data.model.response.auth.RegisterPedagangResponse
+import com.example.jajanyuk.data.model.response.pembeli.PedagangNearByResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.http.Body
@@ -16,6 +17,7 @@ import retrofit2.http.Headers
 import retrofit2.http.Multipart
 import retrofit2.http.POST
 import retrofit2.http.Part
+import retrofit2.http.Query
 
 interface ApiService {
     @Headers("Content-Type: application/json")
@@ -43,5 +45,12 @@ interface ApiService {
     suspend fun getUser(
         @Header("Authorization") token: String
     ): UserResponse
+
+    @GET("stories")
+    suspend fun getPedagangNearBy(
+        @Header("Authorization") token: String,
+        @Query("longitude") longitude: Double = 106.7904283,
+        @Query("latitude") latitude: Double = -6.7670411,
+    ): PedagangNearByResponse
 
 }
