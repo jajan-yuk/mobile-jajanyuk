@@ -19,6 +19,7 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField("String", "BASE_URL", "\"https://user.jajan-yuk.pegelinux.my.id/api/v1/\"")
         buildConfigField("String", "BASE_URL_AUTH", "\"https://auth.jajan-yuk.pegelinux.my.id/api/v1/\"")
+        buildConfigField("String", "BASE_URL_PEDAGANG", "\"https://pedagang.jajan-yuk.pegelinux.my.id/api/v1/\"")
     }
 
     buildTypes {
@@ -68,4 +69,5 @@ dependencies {
     implementation("androidx.datastore:datastore-preferences:1.0.0")
     implementation("com.makeramen:roundedimageview:2.3.0")
     implementation("androidx.exifinterface:exifinterface:1.3.6")
+    implementation("com.google.android.gms:play-services-location:18.0.0")
 }

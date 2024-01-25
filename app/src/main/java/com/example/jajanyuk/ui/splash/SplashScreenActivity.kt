@@ -50,7 +50,6 @@ class SplashScreenActivity : AppCompatActivity() {
                        is Result.Loading -> return@observe
                        is Result.Success -> {
                             var role = it.data.data?.user?.role?.name.toString()
-                           Toast.makeText(this, role, Toast.LENGTH_SHORT).show()
                            if(role == "USER") {
                                Handler(Looper.getMainLooper()).postDelayed({
                                    val homePembeliIntent = Intent(this,   HomePagePembeliActivity::class.java)

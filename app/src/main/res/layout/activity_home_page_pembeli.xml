@@ -57,6 +57,7 @@
                     </LinearLayout>
                 </LinearLayout>
                 <ImageView
+                    android:id="@+id/btn_setting"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_gravity="center"
@@ -87,12 +88,12 @@
                 android:layout_marginTop="20dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/btn_login"
+                app:layout_constraintBottom_toTopOf="@id/btn_map"
                 app:layout_constraintTop_toBottomOf="@id/searchView"
                 />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_login"
+                android:id="@+id/btn_map"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="Open Merchant Maps"

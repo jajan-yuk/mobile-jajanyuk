@@ -83,7 +83,6 @@ class LoginActivity : AppCompatActivity() {
             viewModel.getUserLogin().observe(this) {
                 if (it.accessToken.isNotEmpty()) {
                     var role = it.user?.role?.name.toString()
-                    Toast.makeText(this, role, Toast.LENGTH_SHORT).show()
                     if(role == "USER") {
                         Handler(Looper.getMainLooper()).postDelayed({
                             val homePembeliIntent = Intent(this,   HomePagePembeliActivity::class.java)

@@ -38,8 +38,10 @@ class HomePedagangActivity : AppCompatActivity() {
         })
 
         binding.btnPengaturan.setOnClickListener {
-            val pengaturan = Intent(this,  SettingPedagangActivity::class.java)
-            startActivity(pengaturan)
+            val setting = Intent(this,  SettingPedagangActivity::class.java)
+            startActivity(setting)
         }
+
+
     }
 }
