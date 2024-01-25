@@ -17,6 +17,9 @@
         android:theme="@style/Theme.JajanYuk"
         tools:targetApi="31">
         <activity
+            android:name=".ui.pembeli.PembayaranTunaiBerhasilActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.pembeli.PembayaranTunaiActivity"
             android:exported="false" />
         <activity

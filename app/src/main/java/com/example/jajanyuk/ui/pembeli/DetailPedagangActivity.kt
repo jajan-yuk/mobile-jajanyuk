@@ -46,9 +46,9 @@ class DetailPedagangActivity : AppCompatActivity(), DetailProdukAdapter.DetailPr
 
         binding.btnPesan.setOnClickListener {
             val intent = Intent(this@DetailPedagangActivity, PembayaranActivity::class.java)
-            intent.putExtra("total", total)
-            intent.putExtra("harga", harga)
-            intent.putExtra("nama", nama)
+            intent.putExtra("total", total.toString())
+            intent.putExtra("harga", harga.toString())
+            intent.putExtra("nama", nama.toString())
             startActivity(intent)
         }
 
