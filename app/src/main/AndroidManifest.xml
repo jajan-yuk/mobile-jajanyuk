@@ -17,6 +17,9 @@
         android:theme="@style/Theme.JajanYuk"
         tools:targetApi="31">
         <activity
+            android:name=".ui.pembeli.PembayaranTunaiActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.pedagang.SettingPedagangActivity"
             android:exported="false" />
         <activity
@@ -68,10 +71,10 @@
             android:name=".ui.pembeli.RingkasanPembelianActivity"
             android:exported="true" />
         <activity
-            android:name=".ui.pembeli.pembayaran_premium_activity"
+            android:name=".ui.pembeli.PembayaranPremiumActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.pembeli.pembayaran_activity"
+            android:name=".ui.pembeli.PembayaranActivity"
             android:exported="true" />
         <activity
             android:name=".ui.pembeli.DetailPedagangActivity"

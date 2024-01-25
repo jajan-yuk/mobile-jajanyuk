@@ -7,18 +7,13 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
-import com.example.jajanyuk.R
 import com.example.jajanyuk.data.model.response.DataUser
 import com.example.jajanyuk.data.model.response.pembeli.DataItemPedagangNerby
 import com.example.jajanyuk.data.model.response.pembeli.DetailPedagangResponse
-import com.example.jajanyuk.data.model.response.pembeli.PedagangNearByResponse
 import com.example.jajanyuk.databinding.ActivityDetailPedagangBinding
-import com.example.jajanyuk.databinding.ActivityMapsPedagangBinding
 import com.example.jajanyuk.ui.adapter.DetailProdukAdapter
-import com.example.jajanyuk.ui.adapter.ProdukNearByAdapter
 import com.example.jajanyuk.ui.auth.LoginViewModelFactory
 import com.example.jajanyuk.ui.auth.login.LoginViewModel
-import com.example.jajanyuk.ui.auth.register.pedagang.RegisterPedagangActivity
 import com.example.jajanyuk.ui.pembeli.viewmodel.ProdukViewModel
 import com.example.jajanyuk.ui.pembeli.viewmodel.ProdukViewModelFactory
 import com.example.jajanyuk.utils.Result
@@ -50,7 +45,7 @@ class DetailPedagangActivity : AppCompatActivity(), DetailProdukAdapter.DetailPr
         setContentView(binding.root)
 
         binding.btnPesan.setOnClickListener {
-            val intent = Intent(this@DetailPedagangActivity, pembayaran_activity::class.java)
+            val intent = Intent(this@DetailPedagangActivity, PembayaranActivity::class.java)
             intent.putExtra("total", total)
             intent.putExtra("harga", harga)
             intent.putExtra("nama", nama)
