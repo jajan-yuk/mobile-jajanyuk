@@ -20,8 +20,18 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import android.Manifest.permission.ACCESS_COARSE_LOCATION
 import android.provider.Settings
+import android.view.View
+import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
-
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.jajanyuk.data.model.response.DataUser
+import com.example.jajanyuk.data.model.response.pembeli.PedagangNearByResponse
+import com.example.jajanyuk.ui.adapter.ProdukNearByAdapter
+import com.example.jajanyuk.ui.auth.LoginViewModelFactory
+import com.example.jajanyuk.ui.auth.login.LoginViewModel
+import com.example.jajanyuk.ui.pembeli.viewmodel.ProdukViewModel
+import com.example.jajanyuk.ui.pembeli.viewmodel.ProdukViewModelFactory
+import com.example.jajanyuk.utils.Result
 class HomePagePembeliActivity : AppCompatActivity() {
 
     private val requestPermissionLauncher = registerForActivityResult(
@@ -35,6 +45,19 @@ class HomePagePembeliActivity : AppCompatActivity() {
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
     private lateinit var binding: ActivityHomePagePembeliBinding
     private var location: Location? = null
+
+
+    // viwemodel
+    private val viewModel: ProdukViewModel by viewModels{
+        ProdukViewModelFactory.getInstance(application)
+    }
+    private val  loginViewModel: LoginViewModel by viewModels {
+        LoginViewModelFactory.getInstance(application)
+    }
+
+    // adapter
+    private lateinit var dataUser: DataUser
+    private val adapter = ProdukNearByAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,12 +74,68 @@ class HomePagePembeliActivity : AppCompatActivity() {
             startActivity(map)
         }
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
+
+        setupRecyclerView(adapter)
+
+    }
+    private fun setupRecyclerView(adapter: ProdukNearByAdapter) {
+        val layoutManager = LinearLayoutManager(this@HomePagePembeliActivity)
+        binding.rvPedagang.layoutManager = layoutManager
+        binding.rvPedagang.adapter = adapter
+    }
+    override fun onResume() {
+        super.onResume()
+        observeUserData()
         if (checkLocationPermission()) {
             getLocation()
+            observeProduk()
         } else {
             requestLocationPermission()
         }
     }
+
+    private fun observeUserData() {
+        loginViewModel.getUserLogin().observe(this@HomePagePembeliActivity) {
+            dataUser = it
+        }
+    }
+    private fun observeProduk() {
+        val latitudeDouble: Double = location?.latitude ?: 0.0
+        val longitudeDouble: Double = location?.longitude ?: 0.0
+        viewModel.getPedagangNearBy(dataUser.accessToken, latitudeDouble, longitudeDouble).observe(this) { result ->
+            handleProdukResult(result, adapter)
+        }
+    }
+
+    private fun showLoading(isLoading: Boolean) {
+        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
+    }
+
+    private fun handleProdukResult(result: Result<PedagangNearByResponse>, adapter: ProdukNearByAdapter) {
+        when (result) {
+            is Result.Loading ->  {
+                binding.btnMap.visibility = View.GONE
+                showLoading(true)
+            }
+            is Result.Success -> {
+                showLoading(false)
+                binding.btnMap.visibility = View.VISIBLE
+                val data = result.data.data
+                if (data.isNullOrEmpty()) {
+                    showSnackBar("Produk tidak ada")
+                } else {
+                    adapter.submitList(data)
+                }
+            }
+            is Result.Error -> {
+                showLoading(false)
+                binding.btnMap.visibility = View.VISIBLE
+                showSnackBar(result.error)
+            }
+        }
+    }
+
+
     private fun showEnableLocationDialog() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Aktifkan Lokasi")
@@ -79,8 +158,7 @@ class HomePagePembeliActivity : AppCompatActivity() {
             fusedLocationProviderClient.lastLocation.addOnSuccessListener {
                 if (it != null) {
                     location = it
-                    showSnackBar("langtitudde ${location!!.latitude} dan logntidue ${location!!.longitude}")
-                }
+                 }
                 else {
                     showEnableLocationDialog()
                 }

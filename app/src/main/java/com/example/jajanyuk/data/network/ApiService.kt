@@ -46,7 +46,7 @@ interface ApiService {
         @Header("Authorization") token: String
     ): UserResponse
 
-    @GET("stories")
+    @GET("pedagang")
     suspend fun getPedagangNearBy(
         @Header("Authorization") token: String,
         @Query("longitude") longitude: Double = 106.7904283,

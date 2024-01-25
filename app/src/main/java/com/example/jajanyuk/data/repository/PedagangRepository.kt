@@ -1,6 +1,7 @@
 package com.example.jajanyuk.data.repository
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.liveData
@@ -30,6 +31,7 @@ class PedagangRepository private constructor(
             val response = apiService.getPedagangNearBy(token, longitude, lattitude)
             emit(Result.Success(response))
         }catch (e: HttpException) {
+            Log.e("eror", e.toString())
             emit(ApiError.handleHttpException(e))
         } catch (exception: IOException) {
             emit(Result.Error(application.resources.getString(R.string.network_error_message)))
