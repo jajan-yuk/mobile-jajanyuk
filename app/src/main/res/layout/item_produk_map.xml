@@ -69,6 +69,7 @@
             android:layout_gravity="center"
             android:src="@drawable/ic_star"/>
         <TextView
+            android:id="@+id/tv_rating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
@@ -80,6 +81,7 @@
             android:layout_gravity="center"
             android:src="@drawable/ic_money"/>
         <TextView
+            android:id="@+id/tv_harga"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"

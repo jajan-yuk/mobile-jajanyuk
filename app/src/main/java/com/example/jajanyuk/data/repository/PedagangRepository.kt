@@ -28,7 +28,7 @@ class PedagangRepository private constructor(
     fun getPedagangNearBy(token: String, longitude: Double, lattitude: Double) = liveData {
         emit(Result.Loading)
         try {
-            val response = apiService.getPedagangNearBy(token, longitude, lattitude)
+            val response = apiService.getPedagangNearBy(token, lattitude, longitude)
             emit(Result.Success(response))
         }catch (e: HttpException) {
             Log.e("eror", e.toString())

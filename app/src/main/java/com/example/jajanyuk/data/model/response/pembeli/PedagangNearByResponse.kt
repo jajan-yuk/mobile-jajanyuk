@@ -35,7 +35,7 @@ data class DataItemPedagangNerby(
 	val phone: String? = null,
 
 	@field:SerializedName("latitude")
-	val latitude: Any? = null,
+	val latitude: Double? = null,
 
 	@field:SerializedName("ID")
 	val iD: String? = null,
@@ -44,7 +44,7 @@ data class DataItemPedagangNerby(
 	val summaryProductPedagang: SummaryProductPedagang? = null,
 
 	@field:SerializedName("longitude")
-	val longitude: Any? = null
+	val longitude: Double? = null
 )
 
 data class SummaryProductPedagang(

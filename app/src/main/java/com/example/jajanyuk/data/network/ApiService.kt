@@ -49,8 +49,9 @@ interface ApiService {
     @GET("pedagang")
     suspend fun getPedagangNearBy(
         @Header("Authorization") token: String,
-        @Query("longitude") longitude: Double = 106.7904283,
-        @Query("latitude") latitude: Double = -6.7670411,
+        @Query("latitude") latitude: Double ,
+        @Query("longitude") longitude: Double ,
+        @Query("max_distance") max_distance: Double = 1.0 ,
     ): PedagangNearByResponse
 
 }

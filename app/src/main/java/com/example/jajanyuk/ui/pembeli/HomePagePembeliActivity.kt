@@ -4,16 +4,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.result.contract.ActivityResultContracts
-import com.example.jajanyuk.R
 import com.example.jajanyuk.databinding.ActivityHomePagePembeliBinding
-import com.example.jajanyuk.databinding.ActivityHomePedagangBinding
-import com.example.jajanyuk.ui.pedagang.SettingPedagangActivity
 import android.Manifest
-import android.content.Context
 import android.content.pm.PackageManager
 import android.location.Location
-import android.location.LocationManager
-import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.jajanyuk.utils.SnackbarUtils
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -58,7 +52,6 @@ class HomePagePembeliActivity : AppCompatActivity() {
     // adapter
     private lateinit var dataUser: DataUser
     private val adapter = ProdukNearByAdapter()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomePagePembeliBinding.inflate(layoutInflater)
@@ -70,14 +63,21 @@ class HomePagePembeliActivity : AppCompatActivity() {
         }
 
         binding.btnMap.setOnClickListener {
-            val map = Intent(this, MapsPedagangActivity::class.java)
-            startActivity(map)
+            if (location != null) {
+                val map = Intent(this, MapsPedagangActivity::class.java)
+                map.putExtra("lang", location!!.latitude.toString())
+                map.putExtra("long", location!!.longitude.toString())
+                startActivity(map)
+            }else{
+                showSnackBar("nyalain lokasi bang")
+            }
         }
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
 
         setupRecyclerView(adapter)
 
     }
+
     private fun setupRecyclerView(adapter: ProdukNearByAdapter) {
         val layoutManager = LinearLayoutManager(this@HomePagePembeliActivity)
         binding.rvPedagang.layoutManager = layoutManager
@@ -102,6 +102,7 @@ class HomePagePembeliActivity : AppCompatActivity() {
     private fun observeProduk() {
         val latitudeDouble: Double = location?.latitude ?: 0.0
         val longitudeDouble: Double = location?.longitude ?: 0.0
+
         viewModel.getPedagangNearBy(dataUser.accessToken, latitudeDouble, longitudeDouble).observe(this) { result ->
             handleProdukResult(result, adapter)
         }
