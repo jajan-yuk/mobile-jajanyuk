@@ -1,5 +1,6 @@
 package com.example.jajanyuk.utils
 
+import android.util.Log
 import com.example.jajanyuk.data.model.response.ErrorResponse
 import com.google.gson.Gson
 import com.google.gson.JsonSyntaxException
@@ -10,6 +11,7 @@ object ApiError{
         val jsonInString = exception.response()?.errorBody()?.string()
         val errorBody = Gson().fromJson(jsonInString, ErrorResponse::class.java)
         val errorMessage = errorBody.message
+        Log.e("qweqe", errorMessage)
         return Result.Error(errorMessage)
     }
     fun handleHttpExceptionString(exception: HttpException): String {

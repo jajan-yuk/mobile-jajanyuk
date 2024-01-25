@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.jajanyuk.data.repository.LoginRepository
 import com.example.jajanyuk.di.Injection
 import com.example.jajanyuk.ui.auth.login.LoginViewModel
+import com.example.jajanyuk.ui.splash.SplashScreenViewModel
 
 class LoginViewModelFactory private constructor(private val loginRepository: LoginRepository) :
     ViewModelProvider.NewInstanceFactory() {
@@ -14,6 +15,8 @@ class LoginViewModelFactory private constructor(private val loginRepository: Log
         when {
             modelClass.isAssignableFrom(LoginViewModel::class.java) ->
                 LoginViewModel(loginRepository) as T
+            modelClass.isAssignableFrom(SplashScreenViewModel::class.java) ->
+                SplashScreenViewModel(loginRepository) as T
             else -> throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
         }
     companion object {

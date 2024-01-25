@@ -9,12 +9,15 @@ import com.example.jajanyuk.databinding.ActivityLoginBinding
 import android.text.Editable
 
 import android.text.TextWatcher
+import android.widget.Toast
 import androidx.activity.viewModels
 import com.example.jajanyuk.MainActivity
 import com.example.jajanyuk.R
 import com.example.jajanyuk.ui.auth.AuthViewModelFactory
 import com.example.jajanyuk.ui.auth.LoginViewModelFactory
 import com.example.jajanyuk.ui.auth.register.ChooseRegisterActivity
+import com.example.jajanyuk.ui.pedagang.HomePedagangActivity
+import com.example.jajanyuk.ui.pembeli.HomePagePembeliActivity
 import com.example.jajanyuk.utils.ProgressDialogUtils
 import com.example.jajanyuk.utils.SnackbarUtils
 import com.example.jajanyuk.utils.Result
@@ -79,8 +82,23 @@ class LoginActivity : AppCompatActivity() {
         Handler(Looper.getMainLooper()).postDelayed({
             viewModel.getUserLogin().observe(this) {
                 if (it.accessToken.isNotEmpty()) {
-                    startActivity(Intent(this@LoginActivity, MainActivity::class.java))
-                    finish()
+                    var role = it.user?.role?.name.toString()
+                    Toast.makeText(this, role, Toast.LENGTH_SHORT).show()
+                    if(role == "USER") {
+                        Handler(Looper.getMainLooper()).postDelayed({
+                            val homePembeliIntent = Intent(this,   HomePagePembeliActivity::class.java)
+                            startActivity(homePembeliIntent)
+                            finish()
+                        }, 3000)
+
+                    } else{
+
+                        Handler(Looper.getMainLooper()).postDelayed({
+                            val homePedagangIntent = Intent(this,  HomePedagangActivity::class.java)
+                            startActivity(homePedagangIntent)
+                            finish()
+                        }, 3000)
+                    }
                 }
             }
         }, 3000L)

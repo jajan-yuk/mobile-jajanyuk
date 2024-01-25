@@ -1,13 +1,11 @@
 package com.example.jajanyuk.data.model.response
 
-import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
-import kotlinx.parcelize.Parcelize
 
-data class LoginResponse(
+data class UserResponse(
 
 	@field:SerializedName("data")
-	val data: DataUser,
+	val data: DataUsers? = null,
 
 	@field:SerializedName("success")
 	val success: Boolean? = null,
@@ -16,8 +14,22 @@ data class LoginResponse(
 	val message: String? = null
 )
 
-@Parcelize
-data class User(
+data class DataUsers(
+
+	@field:SerializedName("user")
+	val user: UserData? = null
+)
+
+data class Role(
+
+	@field:SerializedName("name")
+	val name: String? = null,
+
+	@field:SerializedName("id")
+	val id: String? = null
+)
+
+data class UserData(
 
 	@field:SerializedName("activated_at")
 	val activatedAt: String? = null,
@@ -29,7 +41,7 @@ data class User(
 	val password: String? = null,
 
 	@field:SerializedName("role")
-	val role: RoleDataLogin? = null,
+	val role: Role? = null,
 
 	@field:SerializedName("name")
 	val name: String? = null,
@@ -42,27 +54,4 @@ data class User(
 
 	@field:SerializedName("username")
 	val username: String? = null
-): Parcelable
-
-@Parcelize
-data class RoleDataLogin(
-
-	@field:SerializedName("name")
-	val name: String? = null,
-
-	@field:SerializedName("id")
-	val id: String? = null
-): Parcelable
-
-@Parcelize
-data class DataUser(
-
-	@field:SerializedName("access_token")
-	val accessToken: String,
-
-	@field:SerializedName("refresh_token")
-	val refreshToken: String,
-
-	@field:SerializedName("user")
-	val user: User? = null
-): Parcelable
+)

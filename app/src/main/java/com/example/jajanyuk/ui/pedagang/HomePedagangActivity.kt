@@ -1,5 +1,6 @@
 package com.example.jajanyuk.ui.pedagang
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -22,7 +23,6 @@ class HomePedagangActivity : AppCompatActivity() {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
         binding.spinner.adapter = adapter
-
         binding.spinner.setOnItemSelectedListener(object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>?,
@@ -36,5 +36,10 @@ class HomePedagangActivity : AppCompatActivity() {
             override fun onNothingSelected(parent: AdapterView<*>?) {
             }
         })
+
+        binding.btnPengaturan.setOnClickListener {
+            val pengaturan = Intent(this,  SettingPedagangActivity::class.java)
+            startActivity(pengaturan)
+        }
     }
 }

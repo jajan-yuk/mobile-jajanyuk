@@ -119,7 +119,7 @@
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_email"
+                    android:id="@+id/et_nama_profile"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
@@ -143,6 +143,28 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
+                    android:inputType="number" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/alamatEditTextLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Alamat"
+                android:layout_marginTop="20dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/noTeleponEditTextLayout"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_alamat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
                     android:inputType="text" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -162,7 +184,7 @@
                 android:backgroundTint="?attr/colorPrimary"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/noTeleponEditTextLayout"
+                app:layout_constraintTop_toBottomOf="@+id/alamatEditTextLayout"
                 />
         </androidx.constraintlayout.widget.ConstraintLayout>
 

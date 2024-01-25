@@ -4,7 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -16,7 +16,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JajanYuk"
         tools:targetApi="31">
-
+        <activity
+            android:name=".ui.pedagang.SettingPedagangActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.splash.SplashScreenViewModel"
+            android:exported="false" />
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -31,16 +36,10 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyC9xTu70dey04fGI7s4fx8nnaE1kkisU9I" />
+
         <activity
             android:name=".ui.pembeli.MapsPedagangActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
+            android:exported="true" />
         <activity
             android:name=".ui.pembeli.PemesananActivity"
             android:exported="false" />
@@ -67,9 +66,7 @@
             android:exported="false" />
         <activity
             android:name=".ui.pembeli.RingkasanPembelianActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".ui.pembeli.pembayaran_premium_activity"
             android:exported="false" />
@@ -102,16 +99,20 @@
             android:exported="true" />
         <activity
             android:name=".ui.splash.SplashScreenActivity"
-            android:exported="true" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true" />
 
         <meta-data
             android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
-
-        <!-- Trigger Google Play services to install the backported photo picker module. -->
+            android:resource="@array/preloaded_fonts" /> <!-- Trigger Google Play services to install the backported photo picker module. -->
         <!-- suppress AndroidDomInspection -->
         <service
             android:name="com.google.android.gms.metadata.ModuleDependencies"

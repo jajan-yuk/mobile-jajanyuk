@@ -37,6 +37,20 @@ class LoginRepository private constructor(
             response
         })
     }
+    fun getUser(token: String) = liveData {
+        emit(Result.Loading)
+        try {
+            val response = apiService.getUser(token)
+            emit(Result.Success(response))
+        }catch (e: HttpException) {
+            emit(ApiError.handleHttpException(e))
+        } catch (exception: IOException) {
+            emit(Result.Error(application.resources.getString(R.string.network_error_message)))
+        } catch (exception: Exception) {
+            emit(Result.Error(exception.message ?: application.resources.getString(R.string.unknown_error)))
+        }
+    }
+
 
     suspend fun saveSession(data: DataUser) = userPref.saveSession(data)
     fun getSession(): LiveData<DataUser> = userPref.getSession().asLiveData()

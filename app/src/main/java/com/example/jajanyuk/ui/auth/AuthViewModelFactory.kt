@@ -5,7 +5,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.jajanyuk.data.repository.UserRepository
 import com.example.jajanyuk.di.Injection
+import com.example.jajanyuk.ui.auth.register.pedagang.RegisterPedagangViewModel
 import com.example.jajanyuk.ui.auth.register.pembeli.RegisterViewModel
+import com.example.jajanyuk.ui.splash.SplashScreenViewModel
 
 class AuthViewModelFactory private constructor(private val userRepository: UserRepository) :
     ViewModelProvider.NewInstanceFactory() {
@@ -14,6 +16,9 @@ class AuthViewModelFactory private constructor(private val userRepository: UserR
         when {
             modelClass.isAssignableFrom(RegisterViewModel::class.java) ->
                 RegisterViewModel(userRepository) as T
+            modelClass.isAssignableFrom(RegisterPedagangViewModel::class.java) ->
+                RegisterPedagangViewModel(userRepository) as T
+
             else -> throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
         }
     companion object {

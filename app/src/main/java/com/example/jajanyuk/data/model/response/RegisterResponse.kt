@@ -13,7 +13,7 @@ data class RegisterResponse(
 	val message: String? = null
 )
 
-data class Role(
+data class RoleData(
 
 	@field:SerializedName("id")
 	val id: String? = null
@@ -40,7 +40,7 @@ data class DataRegister(
 	val password: String? = null,
 
 	@field:SerializedName("role")
-	val role: Role? = null,
+	val role: RoleData? = null,
 
 	@field:SerializedName("name")
 	val name: String? = null,
