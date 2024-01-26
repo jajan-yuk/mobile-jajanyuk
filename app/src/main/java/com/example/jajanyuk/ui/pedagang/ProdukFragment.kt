@@ -52,31 +52,25 @@ class ProdukFragment : Fragment() {
         super.onResume()
         setupViews()
 
-        loginViewModel.getUserLogin().observe(this){
-            userViewModel.getUser(it.accessToken).observe(this) {
-                when(it){
+        loginViewModel.getUserLogin().observe(this) {
+            viewModel.getProductByPedagang(it.accessToken).observe(this) {
+                when (it) {
                     is Result.Loading -> return@observe
                     is Result.Success -> {
-                        var id = it.data.data?.user?.id.toString()
-                        viewModel.getProductByPedagang(id).observe(this){
-                            when(it){
-                                is Result.Loading -> return@observe
-                                is Result.Success -> {
-                                    val data = it.data.data
-                                    if (data.isNullOrEmpty()) {
-                                        showSnackBar("Produk tidak ada")
-                                    } else {
-                                        adapter.submitList(data)
-                                    }
-                                }
-                                is Result.Error -> "Terjadi eror coba lagi"
-                            }
+                        val data = it.data.data
+                        if (data.isNullOrEmpty()) {
+                            showSnackBar("Produk tidak ada")
+                        } else {
+                            adapter.submitList(data)
                         }
                     }
+
                     is Result.Error -> "Terjadi eror coba lagi"
                 }
             }
         }
+
+
 
 
     }

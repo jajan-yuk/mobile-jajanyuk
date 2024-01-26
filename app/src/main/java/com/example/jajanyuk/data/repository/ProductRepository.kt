@@ -15,10 +15,10 @@ class ProductRepository private constructor(
     private val application: Application
 ) {
 
-    fun getProductByUser(user_id: String, id: String) = liveData {
+    fun getProductByUser(token: String) = liveData {
         emit(Result.Loading)
         try {
-            val response = apiService.getProductByPedagang("Secret_KEY_JAJAN-YUK", user_id)
+            val response = apiService.getProductByPedagang(token)
             emit(Result.Success(response))
         }catch (e: HttpException) {
             Log.e("eror", e.toString())

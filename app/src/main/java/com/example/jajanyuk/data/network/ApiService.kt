@@ -73,10 +73,9 @@ interface ApiService {
         @Path("id") id: String,
     ): DetailPedagangResponse
 
-    @GET("product/pedagang")
+    @GET("product")
     suspend fun getProductByPedagang(
-        @Header("Secret-Key") secret: String = "Secret_KEY_JAJAN-YUK",
-        @Query("user_id") user_id: String,
+        @Header("Authorization") token: String,
     ): ProdukPedagangResponse
 
 }
