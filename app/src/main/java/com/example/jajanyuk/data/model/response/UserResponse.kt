@@ -46,6 +46,9 @@ data class UserData(
 	@field:SerializedName("name")
 	val name: String? = null,
 
+	@field:SerializedName("address")
+	val alamat: String? = null,
+
 	@field:SerializedName("id")
 	val id: String? = null,
 

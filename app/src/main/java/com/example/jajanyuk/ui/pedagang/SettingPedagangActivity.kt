@@ -58,6 +58,7 @@ class SettingPedagangActivity : AppCompatActivity() {
         loginViewModel.deleteUserLogin()
         startActivity(Intent(this@SettingPedagangActivity, LoginActivity::class.java))
         finish()
+        finish()
     }
     private fun buildAlertDialog(customDialogView: View): AlertDialog {
         return AlertDialog.Builder(this)

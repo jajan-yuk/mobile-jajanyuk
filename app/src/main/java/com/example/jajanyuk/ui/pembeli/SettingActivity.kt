@@ -28,6 +28,11 @@ class SettingActivity : AppCompatActivity() {
         binding.btnLogout.setOnClickListener {
             showLogoutDialog()
         }
+
+        binding.btnProfile.setOnClickListener {
+            startActivity(Intent(this, ProfileActivity::class.java))
+
+        }
     }
 
     private fun showLogoutDialog() {
@@ -46,6 +51,7 @@ class SettingActivity : AppCompatActivity() {
     private fun handleYesButtonClick() {
         loginViewModel.deleteUserLogin()
         startActivity(Intent(this, LoginActivity::class.java))
+        finish()
         finish()
     }
     private fun buildAlertDialog(customDialogView: View): AlertDialog {
