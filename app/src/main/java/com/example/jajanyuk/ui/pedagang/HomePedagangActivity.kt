@@ -42,6 +42,11 @@ class HomePedagangActivity : AppCompatActivity() {
             startActivity(setting)
         }
 
+        binding.btnProduk.setOnClickListener {
+            val intent = Intent(this,  ListProdukActivity::class.java)
+            startActivity(intent)
+        }
+
 
     }
 }
