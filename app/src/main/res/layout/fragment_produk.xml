@@ -7,7 +7,19 @@
     android:layout_marginVertical="10dp"
     tools:context=".ui.pedagang.ProdukFragment">
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:indeterminateTint="?android:attr/colorPrimary"
+       app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
     <androidx.recyclerview.widget.RecyclerView
+
         android:id="@+id/rv_leaderboard"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -19,5 +31,19 @@
         app:layout_constraintTop_toTopOf="parent"
         />
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_tambah"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Tambah Produk"
+        app:cornerRadius="8dp"
+        android:padding="18dp"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:backgroundTint="?attr/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

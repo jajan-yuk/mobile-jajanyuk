@@ -6,12 +6,14 @@ import com.example.jajanyuk.data.local.datastore.dataStore
 import com.example.jajanyuk.data.network.ApiConfig
 import com.example.jajanyuk.data.repository.LoginRepository
 import com.example.jajanyuk.data.repository.PedagangRepository
+import com.example.jajanyuk.data.repository.ProductRepository
 import com.example.jajanyuk.data.repository.UserRepository
 
 object Injection {
     private fun provideApiService() = ApiConfig.getApiService()
     private fun provideApiServiceAuth() = ApiConfig.getApiServiceAuth()
     private fun provideApiServicePedagang() = ApiConfig.getApiServicePedagang()
+    private fun provideApiServiceProduct() = ApiConfig.getApiServiceProduct()
     private fun provideUserPreferences(application: Application) =
         UserPreferences.getInstance(application.dataStore)
     fun provideUserRepository(application: Application) =
@@ -22,5 +24,8 @@ object Injection {
 
     fun providePedagangRepository(application: Application) =
         PedagangRepository.getInstance(provideApiServicePedagang(), application)
+
+    fun provideProductRepository(application: Application) =
+        ProductRepository.getInstance(provideApiServiceProduct(), application)
 
 }

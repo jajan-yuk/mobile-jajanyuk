@@ -42,5 +42,17 @@ class ApiConfig {
                 .build()
                 .create(ApiService::class.java)
         }
+
+        fun getApiServiceProduct(): ApiService {
+            val client = OkHttpClient.Builder()
+                .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
+                .build()
+            return Retrofit.Builder()
+                .baseUrl(Constants.BASE_URL_PRODUCT)
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(client)
+                .build()
+                .create(ApiService::class.java)
+        }
     }
 }

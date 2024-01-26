@@ -6,6 +6,7 @@ import com.example.jajanyuk.data.model.request.RegisterRequest
 import com.example.jajanyuk.data.model.response.LoginResponse
 import com.example.jajanyuk.data.model.response.UserResponse
 import com.example.jajanyuk.data.model.response.auth.RegisterPedagangResponse
+import com.example.jajanyuk.data.model.response.pedagang.ProdukPedagangResponse
 import com.example.jajanyuk.data.model.response.pembeli.DetailPedagangResponse
 import com.example.jajanyuk.data.model.response.pembeli.PedagangNearByResponse
 import okhttp3.MultipartBody
@@ -76,6 +77,6 @@ interface ApiService {
     suspend fun getProductByPedagang(
         @Header("Secret-Key") secret: String = "Secret_KEY_JAJAN-YUK",
         @Query("user_id") user_id: String,
-    ): DetailPedagangResponse
+    ): ProdukPedagangResponse
 
 }

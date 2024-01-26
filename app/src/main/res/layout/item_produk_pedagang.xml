@@ -9,7 +9,7 @@
     android:background="@color/white"
     >
     <com.makeramen.roundedimageview.RoundedImageView
-        android:id="@+id/iv_event"
+        android:id="@+id/iv_gambar"
         android:layout_width="90dp"
         android:scaleType="centerCrop"
         app:riv_corner_radius="10dp"
@@ -27,7 +27,7 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/iv_event"
+        app:layout_constraintStart_toEndOf="@id/iv_gambar"
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textview.MaterialTextView
